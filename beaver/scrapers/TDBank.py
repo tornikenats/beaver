@@ -1,29 +1,15 @@
 import requests
-from selenium import webdriver
 import time
 import re
 import calendar
 import datetime
 import csv
 import copy
+from . import Scraper
 
-
-class TDBank:
+class TDBank(Scraper):
     def __init__(self, driver="firefox"):
-        if driver == 'firefox':
-            self.init_firefox_driver()
-        elif driver == 'chrome':
-            self.init_chrome_driver()
-
-    def init_chrome_driver(self):
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        self.driver = webdriver.Firefox(chrome_options=options)
-
-    def init_firefox_driver(self):
-        options = webdriver.FirefoxOptions()
-        options.add_argument('--headless')
-        self.driver = webdriver.Firefox(firefox_options=options)
+        super.__init__(driver)
 
     def get_session_cookies(self, username, password, security_answer):
         self.driver.get("https://easyweb.td.com/waw/idp/login.htm")
