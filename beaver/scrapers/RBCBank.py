@@ -6,18 +6,17 @@ import datetime
 import csv
 import copy
 import logging
-from beaver.scrapers import Scraper
 import logging
 import sys
 import re
 import json
 import dateutil
-
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import lxml.html
+from beaver.scrapers import Scraper
 
 
 class RBCBank(Scraper):
